@@ -1,1 +1,1 @@
-export { default } from "./useNetwork";
+export { default } from "./useNetworkStatus";

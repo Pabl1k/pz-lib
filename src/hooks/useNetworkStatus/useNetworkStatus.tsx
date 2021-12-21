@@ -1,6 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const useNetworkStatus = () => {
+const useNetworkStatus = (): boolean => {
+  /**
+   * Check the current network connection status
+   */
   const [status, setStatus] = useState<boolean>(navigator.onLine);
   const handleChange = () => {
     setStatus(navigator.onLine);
@@ -17,8 +20,8 @@ const useNetworkStatus = () => {
   return status;
 };
 
-export default function UseNetworkExample() {
+export default function UseNetworkStatusExample() {
   const isOnline = useNetworkStatus();
 
-  return <h1>You are ${isOnline ? "Online" : "Offline"}</h1>;
+  return <h1>You are {isOnline ? "Online" : "Offline"}</h1>;
 }
