@@ -10,3 +10,4 @@ export * from "./usePreventLeave";
 export * from "./useScroll";
 export * from "./useTabs";
 export * from "./useTitle";
+export * from "./useOutsideClick";

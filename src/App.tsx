@@ -12,9 +12,13 @@ import UseNetworkStatusExample from "./hooks/useNetworkStatus";
 import UseScrollExample from "./hooks/useScroll";
 import UseNotificationsExample from "./hooks/useNotifications";
 import UseAxiosExample from "./hooks/useAxios";
+import SingleActiveClass from "./activeClass/SingleActiveClass";
+import MultipleActiveClass from "./activeClass/MultipleActiveClass";
+import OutsideClickListener from "./outsideClickListener";
+import Icon from "./Icon";
 
 function App() {
-  return <UseNotificationsExample />;
+  return <OutsideClickListener />;
 }
 
 export default App;
