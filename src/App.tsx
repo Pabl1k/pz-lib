@@ -16,9 +16,16 @@ import SingleActiveClass from "./activeClass/SingleActiveClass";
 import MultipleActiveClass from "./activeClass/MultipleActiveClass";
 import OutsideClickListener from "./outsideClickListener";
 import Icon from "./Icon";
+import ButtonWithIcon from "./buttonWithIcon";
 
 function App() {
-  return <OutsideClickListener />;
+  return (
+    <ButtonWithIcon
+      label="button"
+      leftIcon={<Icon name="heart" height="20" width="20" />}
+      rightIcon={<Icon name="arrow" height="20" width="20" />}
+    />
+  );
 }
 
 export default App;
