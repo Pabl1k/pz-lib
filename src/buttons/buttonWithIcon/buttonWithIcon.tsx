@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+
 import { ButtonWithIconType } from "./buttonWithIconType";
 
 /**
@@ -7,7 +8,7 @@ import { ButtonWithIconType } from "./buttonWithIconType";
  *  <ButtonWithIcon
  *      label="button"
  *      leftIcon={<Icon name="heart" />}
- *      rightIcon={<Icon name="ArrowIcon" />}
+ *      rightIcon={<Icon name="arrow" />}
  *  />
  */
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import "../activeClass.css";
+import "../activeClass.scss";
 
 const MultipleActiveClass = (): JSX.Element => {
   const state: string[] = ["Line: ", "Line: ", "Line: ", "Line: ", "Line: "];

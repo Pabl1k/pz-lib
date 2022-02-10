@@ -16,15 +16,14 @@ import SingleActiveClass from "./activeClass/SingleActiveClass";
 import MultipleActiveClass from "./activeClass/MultipleActiveClass";
 import OutsideClickListener from "./outsideClickListener";
 import Icon from "./Icon";
-import ButtonWithIcon from "./buttonWithIcon";
+import ButtonWithIcon from "./buttons/buttonWithIcon";
+import AnimatedButton from "./buttons/animatedButton";
 
 function App() {
   return (
-    <ButtonWithIcon
-      label="button"
-      leftIcon={<Icon name="heart" height="20" width="20" />}
-      rightIcon={<Icon name="arrow" height="20" width="20" />}
-    />
+    <div style={{ margin: 100 }}>
+      <MultipleActiveClass />
+    </div>
   );
 }
 
