@@ -18,6 +18,7 @@ import OutsideClickListener from "./outsideClickListener";
 import Icon from "./Icon";
 import ButtonWithIcon from "./buttons/buttonWithIcon";
 import AnimatedButton from "./buttons/animatedButton";
+import UseThisYearDaysPastAmount from "./hooks/useTodayDayNumber";
 
 function App() {
   return (
