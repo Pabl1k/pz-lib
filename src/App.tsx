@@ -9,7 +9,7 @@ import UsePreventLeaveExample from "./hooks/usePreventLeave";
 import UseBeforeLeaveExample from "./hooks/useBeforeLeave";
 import UseFadeInExample from "./hooks/useFadeIn";
 import UseNetworkStatusExample from "./hooks/useNetworkStatus";
-import UseScrollExample from "./hooks/useScroll";
+import UseCurrentScrollPositionExample from "./hooks/useCurrentScrollPosition";
 import UseNotificationsExample from "./hooks/useNotifications";
 import UseAxiosExample from "./hooks/useAxios";
 import SingleActiveClass from "./activeClass/SingleActiveClass";
@@ -19,11 +19,13 @@ import Icon from "./Icon";
 import ButtonWithIcon from "./buttons/buttonWithIcon";
 import AnimatedButton from "./buttons/animatedButton";
 import UseThisYearDaysPastAmount from "./hooks/useTodayDayNumber";
+import { uid } from "./hooks/useUniqueId/useUniqueId";
+import UseScrollExample from "./hooks/useScroll/useScroll";
 
 function App() {
   return (
-    <div style={{ margin: 100 }}>
-      <MultipleActiveClass />
+    <div style={{ margin: 10 }}>
+      <UseScrollExample />
     </div>
   );
 }

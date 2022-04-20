@@ -7,7 +7,7 @@ export * from "./useInput";
 export * from "./useNetworkStatus";
 export * from "./useNotifications";
 export * from "./usePreventLeave";
-export * from "./useScroll";
+export * from "./useCurrentScrollPosition";
 export * from "./useTabs";
 export * from "./useTitle";
 export * from "./useOutsideClick";
