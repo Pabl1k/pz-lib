@@ -1,31 +1,59 @@
-import React from "react";
-import Skeleton from "./skeleton/skeleton";
+import React, { useRef } from "react";
+import { UseScroll } from "./hooks/useScroll/useScroll";
 
 function App() {
+  const topRef = useRef<HTMLDivElement>(null);
+  const middleRef = useRef<HTMLDivElement>(null);
+  const bottomRef = useRef<HTMLDivElement>(null);
+
+  const scrollHandler = (ref: HTMLDivElement, behavior: "smooth" | "auto") => {
+    UseScroll(ref, behavior);
+  };
+
   return (
     <div
       style={{
-        margin: 10,
-        width: 500,
-        height: 300,
-        border: "1px solid red",
-        padding: 15,
+        height: 2000,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
       }}
     >
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <div style={{ marginRight: 15 }}>
-          <Skeleton.Avatar height={100} width={100} />
-        </div>
-        <div style={{ width: "100%" }}>
-          <Skeleton.Text
-            height={20}
-            containerHeight={40}
-            lastLineLength="80%"
-          />
-        </div>
+      <div ref={topRef}>
+        top{" "}
+        <button
+          onClick={() => {
+            if (middleRef.current) {
+              scrollHandler(middleRef.current, "auto");
+            }
+          }}
+        >
+          go to middle
+        </button>
       </div>
-      <div style={{ marginTop: 15 }}>
-        <Skeleton.Text height={16} containerHeight={100} lastLineLength="80%" />
+      <div ref={middleRef}>
+        middle{" "}
+        <button
+          onClick={() => {
+            if (bottomRef.current) {
+              scrollHandler(bottomRef.current, "auto");
+            }
+          }}
+        >
+          go to bottom
+        </button>
+      </div>
+      <div style={{ marginBottom: 1000 }} ref={bottomRef}>
+        bottom{" "}
+        <button
+          onClick={() => {
+            if (topRef.current) {
+              scrollHandler(topRef.current, "smooth");
+            }
+          }}
+        >
+          go to top
+        </button>
       </div>
     </div>
   );
