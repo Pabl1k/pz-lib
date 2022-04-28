@@ -1,0 +1,41 @@
+.skeleton {
+  background-image: linear-gradient(
+    90deg,
+    #eee 0%,
+    #eee 40%,
+    #ddd 50%,
+    #ddd 55%,
+    #eee 65%,
+    #eee 100%
+  );
+
+  background-size: 400%;
+  animation: shimmer 1.5s infinite;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+
+  &__line {
+    margin-bottom: 0.3rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 100% 100%;
+  }
+
+  to {
+    background-position: 0 0;
+  }
+}
