@@ -3,18 +3,20 @@ import "./skeleton.scss";
 
 type TextProps = {
   borderRadius?: number;
-  height: number;
+  lineHeight: number;
   containerHeight?: number;
-  lastLineLength?: string;
+  lastLineWidthPercent?: number;
 };
 
+const PX_IN_REM = 16;
+
 const Text: FC<TextProps> = ({
-  height,
-  containerHeight = height,
-  lastLineLength = "100%",
-  borderRadius = 5,
+  lineHeight,
+  containerHeight = lineHeight,
+  lastLineWidthPercent = 100,
+  borderRadius = 0,
 }) => {
-  const linesQuantity: number = Math.floor(containerHeight / height);
+  const linesQuantity: number = Math.floor(containerHeight / lineHeight);
   let arr: null[] = [];
   for (let i = 0; i < linesQuantity; i++) {
     arr.push(null);
@@ -28,8 +30,8 @@ const Text: FC<TextProps> = ({
             className="skeleton text__line"
             style={{
               borderRadius,
-              height,
-              width: `${i === arr.length - 1 && lastLineLength}`,
+              height: `${lineHeight / PX_IN_REM}rem`,
+              width: `${i === arr.length - 1 && lastLineWidthPercent}%`,
             }}
             key={i}
           />
@@ -45,7 +47,15 @@ type AvatarProps = {
 };
 
 const Avatar: FC<AvatarProps> = ({ height, width }) => {
-  return <div className="skeleton avatar" style={{ height, width }} />;
+  return (
+    <div
+      className="skeleton avatar"
+      style={{
+        height: `${height / PX_IN_REM}rem`,
+        width: `${width / PX_IN_REM}rem`,
+      }}
+    />
+  );
 };
 
 const Skeleton = {
