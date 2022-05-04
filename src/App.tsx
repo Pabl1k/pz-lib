@@ -1,62 +1,68 @@
-import React, { useRef } from "react";
-import { UseScroll } from "./hooks/useScroll/useScroll";
+import React, { useState } from "react";
+import { useLocalStorage as UseLocalStorage } from "./hooks/useLocalStorage/useLocalStorage";
 
 function App() {
-  const topRef = useRef<HTMLDivElement>(null);
-  const middleRef = useRef<HTMLDivElement>(null);
-  const bottomRef = useRef<HTMLDivElement>(null);
-
-  const scrollHandler = (ref: HTMLDivElement, behavior: "smooth" | "auto") => {
-    UseScroll(ref, behavior);
+  const [keyValue, setKeyValue] = useState<string>("");
+  const [inputValue, setInputValue] = useState<string>("");
+  const onSetHandler = (key: string, value: string) => {
+    UseLocalStorage("set", key, value);
   };
 
+  const [getKey, setGetKey] = useState<string>("");
+  const [getData, setGetData] = useState<string>("");
+  const onGetHandler = (key: string) => {
+    const data = UseLocalStorage("get", key);
+    setGetData(!!data ? data : "Key does not exist");
+  };
+
+  const [removeKey, setRemoveKey] = useState<string>("");
+  const onRemoveHandler = (key: string) => {
+    UseLocalStorage("remove", key);
+  };
   return (
-    <div
-      style={{
-        height: 2000,
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-      }}
-    >
-      <div ref={topRef}>
-        top{" "}
+    <div style={{ margin: 10, display: "flex", flexDirection: "column" }}>
+      <div>
+        SET:{" "}
+        <input
+          placeholder="key"
+          value={keyValue}
+          onChange={(e) => setKeyValue(e.currentTarget.value)}
+        />
+        <input
+          placeholder="value"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.currentTarget.value)}
+        />
         <button
           onClick={() => {
-            if (middleRef.current) {
-              scrollHandler(middleRef.current, "auto");
-            }
+            onSetHandler(keyValue, inputValue);
+            setKeyValue("");
+            setInputValue("");
           }}
         >
-          go to middle
+          set
         </button>
       </div>
-      <div ref={middleRef}>
-        middle{" "}
-        <button
-          onClick={() => {
-            if (bottomRef.current) {
-              scrollHandler(bottomRef.current, "auto");
-            }
-          }}
-        >
-          go to bottom
-        </button>
+      <div style={{ marginTop: 20 }}>
+        GET:{" "}
+        <input
+          placeholder="key"
+          value={getKey}
+          onChange={(e) => setGetKey(e.currentTarget.value)}
+        />
+        <button onClick={() => onGetHandler(getKey)}>get</button> Result:{" "}
+        {getData}
       </div>
-      <div style={{ marginBottom: 1000 }} ref={bottomRef}>
-        bottom{" "}
-        <button
-          onClick={() => {
-            if (topRef.current) {
-              scrollHandler(topRef.current, "smooth");
-            }
-          }}
-        >
-          go to top
-        </button>
+      <div style={{ marginTop: 20 }}>
+        REMOVE:{" "}
+        <input
+          placeholder="key"
+          value={removeKey}
+          onChange={(e) => setRemoveKey(e.currentTarget.value)}
+        />{" "}
+        <button onClick={() => onRemoveHandler(removeKey)}>remove</button>
       </div>
     </div>
   );
 }
-
 export default App;
