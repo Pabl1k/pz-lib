@@ -1,10 +1,10 @@
 import React from "react";
-import MultipleActiveClass from "./activeClass/MultipleActiveClass";
+import ContextMenu from "./ContextMenu/ContextMenu";
 
 function App() {
   return (
     <div style={{ width: 300, height: 200 }}>
-      <MultipleActiveClass />
+      <ContextMenu />
     </div>
   );
 }
